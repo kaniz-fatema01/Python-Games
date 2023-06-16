@@ -1,0 +1,48 @@
+def start_game():
+    print("Welcome to the Adventure Game!")
+    print("You wake up in a mysterious forest.")
+    print("There are two paths ahead of you, one leading to a dark cave and another to a shimmering lake.")
+    print("Which path do you choose? (cave/lake)")
+
+    choice = input().lower()
+
+    if choice == "cave":
+        explore_cave()
+    elif choice == "lake":
+        explore_lake()
+    else:
+        print("Invalid choice. Please try again.")
+        start_game()
+
+def explore_cave():
+    print("You enter the dark cave.")
+    print("It's cold and damp, and you can hear strange noises echoing.")
+    print("You stumble upon a hidden treasure chest!")
+    print("Do you want to open it? (yes/no)")
+
+    choice = input().lower()
+
+    if choice == "yes":
+        print("Congratulations! You found a chest full of gold and jewels!")
+    elif choice == "no":
+        print("You decide not to open the chest. Who knows what dangers it holds!")
+    else:
+        print("Invalid choice. Please try again.")
+        explore_cave()
+
+def explore_lake():
+    print("You arrive at the shimmering lake.")
+    print("The water is crystal clear, and you see a boat by the shore.")
+    print("Do you want to take the boat and explore the lake? (yes/no)")
+
+    choice = input().lower()
+
+    if choice == "yes":
+        print("You row the boat across the lake and discover a hidden island!")
+    elif choice == "no":
+        print("You decide not to take the boat. Perhaps another time!")
+    else:
+        print("Invalid choice. Please try again.")
+        explore_lake()
+
+start_game()
