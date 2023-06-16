@@ -1,0 +1,56 @@
+#A puzzle game through number
+import random
+
+def create_puzzle(size):
+    numbers = list(range(1, size*size)) + [None]
+    random.shuffle(numbers)
+    puzzle = [numbers[i:i+size] for i in range(0, size*size, size)]
+    return puzzle
+
+def display_puzzle(puzzle):
+    for row in puzzle:
+        print(" ".join(str(num) if num is not None else " " for num in row))
+
+def find_blank(puzzle):
+    size = len(puzzle)
+    for i in range(size):
+        for j in range(size):
+            if puzzle[i][j] is None:
+                return i, j
+
+def is_solved(puzzle):
+    size = len(puzzle)
+    for i in range(size):
+        for j in range(size):
+            if puzzle[i][j] != i*size + j + 1:
+                return False
+    return True
+
+def move(puzzle, direction):
+    blank_i, blank_j = find_blank(puzzle)
+    size = len(puzzle)
+
+    if direction == "up" and blank_i > 0:
+        puzzle[blank_i][blank_j] = puzzle[blank_i - 1][blank_j]
+        puzzle[blank_i - 1][blank_j] = None
+    elif direction == "down" and blank_i < size - 1:
+        puzzle[blank_i][blank_j] = puzzle[blank_i + 1][blank_j]
+        puzzle[blank_i + 1][blank_j] = None
+    elif direction == "left" and blank_j > 0:
+        puzzle[blank_i][blank_j] = puzzle[blank_i][blank_j - 1]
+        puzzle[blank_i][blank_j - 1] = None
+    elif direction == "right" and blank_j < size - 1:
+        puzzle[blank_i][blank_j] = puzzle[blank_i][blank_j + 1]
+        puzzle[blank_i][blank_j + 1] = None
+
+def play_puzzle_game(size):
+    puzzle = create_puzzle(size)
+
+    while not is_solved(puzzle):
+        display_puzzle(puzzle)
+        direction = input("Enter direction (up/down/left/right): ").lower()
+        move(puzzle, direction)
+
+    print("Congratulations! You solved the puzzle!")
+
+play_puzzle_game(3)
