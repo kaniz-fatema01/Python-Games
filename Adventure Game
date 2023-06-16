@@ -1,0 +1,47 @@
+def start_game():
+    print("Welcome to the Adventure Game!")
+    print("You find yourself in a mysterious room.")
+    print("There are two doors in front of you, one to the left and one to the right.")
+    print("Which door do you choose? (left/right)")
+
+    choice = input().lower()
+
+    if choice == "left":
+        room_left()
+    elif choice == "right":
+        room_right()
+    else:
+        print("Invalid choice. Please try again.")
+        start_game()
+
+def room_left():
+    print("You enter the room on the left.")
+    print("There is a treasure chest in the corner.")
+    print("Do you want to open it? (yes/no)")
+
+    choice = input().lower()
+
+    if choice == "yes":
+        print("Congratulations! You found a pile of gold!")
+    elif choice == "no":
+        print("You decide not to open the chest. Wise choice!")
+    else:
+        print("Invalid choice. Please try again.")
+        room_left()
+
+def room_right():
+    print("You enter the room on the right.")
+    print("It's a dark room with a spooky atmosphere.")
+    print("You see a ladder going up. Do you want to climb it? (yes/no)")
+
+    choice = input().lower()
+
+    if choice == "yes":
+        print("You climb the ladder and find yourself on the rooftop. The view is breathtaking!")
+    elif choice == "no":
+        print("You decide not to climb the ladder. Maybe next time!")
+    else:
+        print("Invalid choice. Please try again.")
+        room_right()
+
+start_game()
