@@ -1,0 +1,27 @@
+import random
+
+
+def play_game():
+    print("Welcome to the Hilarious Number Guessing Game!")
+    print("I've picked a random number between 1 and 20.")
+    print("Can you guess what it is?")
+
+    secret_number = random.randint(1, 20)
+    attempts = 0
+
+    while True:
+        guess = int(input("Enter your guess: "))
+        attempts += 1
+
+        if guess < secret_number:
+            print("Ha! Too low! Try again, my friend.")
+        elif guess > secret_number:
+            print("Oh no! That's too high! Give it another shot.")
+        else:
+            print(f"Congratulations! You've found the hilarious number in {attempts} attempts!")
+            break
+
+    print("Thanks for playing the Hilarious Number Guessing Game!")
+
+
+play_game()
