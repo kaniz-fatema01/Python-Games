@@ -1,0 +1,48 @@
+def guess_animal():
+    print("Welcome to Guess the Animal!")
+    print("Think of an animal, and I'll try to guess it.")
+
+    while True:
+        answer = input("Are you ready? (yes/no): ").lower()
+
+        if answer == "yes":
+            break
+        elif answer == "no":
+            print("Okay, let me know when you're ready!")
+        else:
+            print("Invalid input. Please answer with 'yes' or 'no'.")
+
+    print("Great! Let's get started.")
+
+    while True:
+        guess = input("Is it a mammal? (yes/no): ").lower()
+
+        if guess == "yes":
+            guess = input("Does it live in water? (yes/no): ").lower()
+
+            if guess == "yes":
+                print("Is it a dolphin?")
+                break
+            elif guess == "no":
+                print("Is it a tiger?")
+                break
+            else:
+                print("Invalid input. Please answer with 'yes' or 'no'.")
+        elif guess == "no":
+            guess = input("Does it have feathers? (yes/no): ").lower()
+
+            if guess == "yes":
+                print("Is it a peacock?")
+                break
+            elif guess == "no":
+                print("Is it a snake?")
+                break
+            else:
+                print("Invalid input. Please answer with 'yes' or 'no'.")
+        else:
+            print("Invalid input. Please answer with 'yes' or 'no'.")
+
+    print("Yay! I guessed it!")
+
+# Start the game
+guess_animal()
